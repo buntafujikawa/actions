@@ -1,0 +1,28 @@
+name: test
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - "src/**"
+  pull_request:
+    branches: [ main ]
+    paths:
+      - "src/**"
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
+        with:
+          php-version: '8.0'
+      - uses: actions/checkout@v2
+
+  test:
+    needs: prepare
+    runs-on: ubuntu-latest
+    steps:
+      - name: test
+          run: make test
+            working-directory: src

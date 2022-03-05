@@ -1,4 +1,6 @@
+src:
+- src/**/*
 dir1:
-- dir1/**/*
+- src/dir1/**/*
 dir2:
-- dir2/**/*
+- src/dir2/**/*

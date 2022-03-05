@@ -24,5 +24,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: test
-          run: make test
-            working-directory: src
+        run: make test
+        working-directory: src

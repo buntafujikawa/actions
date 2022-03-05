@@ -1,8 +1,9 @@
 name: test
 
 on:
-  pull_request:
-    types: [opened]
+  push:
+    branches:
+      - dev
 
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

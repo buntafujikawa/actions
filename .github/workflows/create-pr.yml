@@ -1,0 +1,17 @@
+name: test
+
+on:
+  pull_request:
+    types: [opened]
+
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+  create_new_pull_request:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: Create Pull Request
+        run: hub pull-request -m "test" -b main -h dev

@@ -1,8 +1,8 @@
 name: Assign self to Pull Request
 
-on:
-  pull_request:
-    types: [opened]
+#on:
+#  pull_request:
+#    types: [opened]
 
 jobs:
   assign_self_to_pull_request:

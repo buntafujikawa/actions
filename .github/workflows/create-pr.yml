@@ -5,16 +5,17 @@ on:
     branches:
       - dev
 
-env:
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
 jobs:
   create_new_pull_request:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository code
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
       - name: Create Pull Request
-        run: hub pull-request -m "test" -b main -h dev
+        uses: repo-sync/pull-request@v2
         with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          source_branch: 'dev'
+          destination_branch: 'main'
+          pr_title: "title"
+          pr_body: "body"
           labels: release
